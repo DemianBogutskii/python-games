@@ -1,0 +1,67 @@
+from colorama import *
+from random import randint
+from datetime import datetime
+init()
+print(Style.BRIGHT,end="")
+def print_blue (str):
+  print(Fore.LIGHTBLUE_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_yellow (str):
+  print(Fore.YELLOW,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_red_on_yellow(str):
+  print(Fore.RED + Back.LIGHTYELLOW_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_green (str):
+  print(Fore.LIGHTGREEN_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_red (str):
+  print(Fore.LIGHTRED_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_purple (str):
+  print(Fore.LIGHTMAGENTA_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+def print_bright_red(str):
+  print(Fore.LIGHTRED_EX,end="")
+  print(str)
+  print(Style.RESET_ALL,end="")
+
+print_red_on_yellow("Let the game begin!")
+n = randint(1,9)
+secret_lst = [str(n)]
+while len(secret_lst) < 4:
+  n = randint(0,9)
+  if not str(n) in secret_lst:
+    secret_lst.append(str(n))
+secret = int("".join(secret_lst))
+attempts = 0
+guess = input(Fore.LIGHTCYAN_EX + "Try to guess our 4 digit number: ")
+start = datetime.today()
+attempts += 1
+guess_lst = list(guess)
+correct_guess = ""
+while guess_lst != secret_lst:
+  for i in range(4):
+    if guess_lst[i] == secret_lst[i]:
+      correct_guess += secret_lst[i]
+    elif guess_lst[i] in secret_lst:
+      print_yellow(f"The digit {guess_lst[i]} is in our number but on another position.")
+      correct_guess += "_"
+    else:
+      correct_guess += "_"
+  print_bright_red("".join(correct_guess))
+  correct_guess = ""
+  guess = input(Fore.LIGHTCYAN_EX + "Try to guess our 4 digit number, again: ")
+  attempts += 1
+  guess_lst = list(guess)
+print(f"\nYou got it! It was {secret}")
+end = datetime.today()
+print_green("STATUS:")
+print_red(f"It took you {attempts} attempts")
+print_purple(f"It took you {(end - start).seconds} seconds")
