@@ -1,0 +1,25 @@
+from random import choice
+from datetime import datetime
+words = ["apple","guava","tomato","pineapple","apricot","avocado","potato","date","fig","grapefruit","jackfruit","grapes", "blueberry", "cherry","bird cherry", "bilberry","chokeberry", "cocoa bean", "cranberry", "peanut", "walnut", "persimmon", "watermelon", "melon", "pomegranate", "pomelo", "mango", "nectarine", "pistachio", "tangirine", "coconut", "plum","strawberry", "almond", "cashew", "passion fruit", "banana", "lime", "lemon", "litchi", "zucchini", "pine nut", "star fruit", "carambola"]
+print("Guess the word:")
+secret = choice(words)
+code = ["-" if letter != " " else " " for letter in secret]
+print("".join(code))
+attempts = 0
+start = datetime.today()
+while "-" in code:
+  letter = input("Enter letter: ")
+  attempts += 1
+  if letter in secret:
+    indexs = []
+    for i in range(len(secret)):
+      if letter == secret[i]:
+        indexs.append(i)
+    for i in range(len(code)):
+      if i in indexs:
+        code[i] = letter
+  else:
+    print("Letter not included.")
+  print("".join(code))
+end = datetime.today()
+print(f"It took you {attempts} attempts and {(end-start).seconds} seconds")
