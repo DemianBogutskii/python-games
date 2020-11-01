@@ -1,0 +1,18 @@
+from random import randint
+radius = randint(10,15)
+amount_guess = randint(3,5)
+print(f"I thought of {amount_guess} numbers from 1 to {radius}\nTry to guess it.")
+secret = []
+while len(secret) <= amount_guess:
+  n = randint(1,radius)
+  if not n in secret:
+    secret.append(str(n))
+secret = sorted(secret)
+score = 0
+correct_guess = []
+user_guess = [input("Enter your guess: ") for i in range(amount_guess)]
+for el in user_guess:
+  if el in secret:
+    score += 1
+    correct_guess.append(el)
+print(f"You guessed correctly {score} out of {amount_guess}.\nThe original list was \n{', '.join(secret)}\nYou guessed {', '.join(sorted((correct_guess)))} out the list.")
