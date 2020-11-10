@@ -1,0 +1,74 @@
+from random import randint
+your_money = int(input("Enter how much money do you want to play with: "))
+daniel_money = your_money
+denis_money = your_money
+nazar_money = your_money
+kostya_money = your_money
+step = 0
+while your_money > 0 and daniel_money > 0 and denis_money > 0 and nazar_money > 0 and kostya_money > 0:
+	step = step + 1
+	print(f"Round: {step}")
+	your_bet = int(input("Enter your bet: "))
+  if your_bet > your_money or your_bet <= 0:
+
+  daniel_bet = int(input("Daniel, enter your bet:"))
+  denis_bet = int(input("Denis, enter your bet:"))
+  nazar_bet = int(input("Nazar, enter your bet:"))
+  kostya_bet = int(input("Kostya, enter your bet:"))
+	your_guess = int(input("Guess the roll: "))
+	your_result = randint(1, 6) + randint(1, 6)
+	daniel_guess = int(input("Guess the roll: "))
+	daniel_result = randint(1, 6) + randint(1, 6)
+	denis_guess = int(input("Guess the roll: "))
+	denis_result = randint(1, 6) + randint(1, 6)
+	nazar_guess = int(input("Guess the roll: "))
+	nazar_result = randint(1, 6) + randint(1, 6)
+	kostya_guess = int(input("Guess the roll: "))
+	kostya_result = randint(1, 6) + randint(1, 6)
+	
+
+	print(f"Denis guessed {your_guess}, and got {your_result}")
+	print(f"Demian guessed {demian_guess}, and got {demian_result}")
+	print(f"Daniel guessed {daniel_guess}, and got {daniel_result}")
+	print(f"Nazar guessed {nazar_guess}, and got {nazar_result}")
+	print(f"Kostya guessed {kostya_guess}, and got {kostya_result}")
+
+	if your_guess == your_result:
+		your_money += bet
+	else:
+		your_money -= bet
+
+	if daniel_guess == daniel_result:
+		daniel_money +=  bet
+	else:
+		daniel_money -= bet
+
+	if denis_guess == denis_result:
+		denis_money += bet
+	else:
+		denis_money -= bet
+
+	if nazar_guess == nazar_result:
+		nazar_money += bet
+	else:
+		nazar_money += bet
+
+	if kostya_guess == kostya_result:
+		kostya_money += bet
+	else:
+		kostya_money -= bet
+
+	print("Status:")
+	print(f"Demian has {your_money} dollars")
+	print(f"Denis has {denis_money} dollars")
+	print(f"Daniel has {daniel_money} dollars")
+	print(f"Nazar has {nazar_money} dollars")
+	print(f"Kostya has {kostya_money} dollars")
+	
+
+# if your_money > :
+# 	print("You won!")
+# elif your_money < computer_money:
+# 	print("You lost!")
+# else:
+# 	print("Draw!")
