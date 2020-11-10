@@ -1,0 +1,35 @@
+from random import randint
+your_money = int(input("How much money do you want to use: "))
+computer_money = your_money
+stage = 0
+while your_money > 0 and computer_money > 0:
+  stage += 1
+  print("ROUND", stage)
+  bet = int(input("Your bet: "))
+  if bet > your_money or bet <= 0:
+    print("Wrong bet.")
+    continue
+  your_guess = int(input("Your guess: "))
+  your_result = randint(1,6) + randint(1,6)
+  computer_guess = randint(2,12)
+  computer_result = randint(1,6) + randint(1,6)
+  print(f"You guessed {your_guess}, and got {your_result}")
+  print(f"Computer guessed {computer_guess}, and got {computer_result}")
+  if your_guess == your_result:
+    your_money += bet 
+  else:
+    your_money -= bet
+  if computer_guess == computer_result:
+    computer_money += bet 
+  else:
+    computer_money -= bet
+  print("STATUS:")
+  print(f"you have ${your_money}")
+  print(f"computer has ${computer_money}")
+  print()
+if your_money > computer_money:
+  print("YOU WON! " * 15)
+elif your_money < computer_money:
+  print("COMPUTER WON! " * 15)
+else:
+  print("YOU WON!  | COMPUTER WON! " * 15)
