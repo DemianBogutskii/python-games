@@ -1,0 +1,26 @@
+from tkinter import *
+from tkinter import ttk
+
+
+def add():
+    result.delete(0, END)
+    result.insert(0, int(number1.get())+int(number2.get()))
+
+
+root = Tk()
+root.title("Calculator")
+mainframe = ttk.Frame(root)
+mainframe.grid(column=3, row=3)
+
+number1 = Entry(root)
+number1.grid(row=1, column=1)
+
+number2 = Entry(root)
+number2.grid(row=1, column=2)
+
+ttk.Button(root, text="sum", command=add).grid(row=2, column=1)
+
+result = Entry(root)
+result.grid(row=2, column=2)
+
+root.mainloop()
