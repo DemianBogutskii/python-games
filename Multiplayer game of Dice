@@ -1,10 +1,12 @@
 from random import randint
+
 your_money = int(input("Enter how much money do you want to play with: "))
 daniel_money = your_money
 denis_money = your_money
 nazar_money = your_money
 kostya_money = your_money
 step = 0
+
 while your_money > 0 and daniel_money > 0 and denis_money > 0 and nazar_money > 0 and kostya_money > 0:
 	step = step + 1
 	print(f"Round: {step}")
@@ -58,6 +60,7 @@ while your_money > 0 and daniel_money > 0 and denis_money > 0 and nazar_money > 
 	else:
 		kostya_money -= bet
 
+
 	print("Status:")
 	print(f"Demian has {your_money} dollars")
 	print(f"Denis has {denis_money} dollars")
@@ -65,7 +68,6 @@ while your_money > 0 and daniel_money > 0 and denis_money > 0 and nazar_money > 
 	print(f"Nazar has {nazar_money} dollars")
 	print(f"Kostya has {kostya_money} dollars")
 	
-
 # if your_money > :
 # 	print("You won!")
 # elif your_money < computer_money:
